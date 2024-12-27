@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 
 const IndexPage = () => {
     return (
@@ -17,7 +19,7 @@ const IndexPage = () => {
                         <li className="nav-item me-4"><a className="nav-link" href="#">Services</a></li>
                         <li className="nav-item"><a className="nav-link" href="#">Testimonials</a></li>
                     </ul>
-                    <div><a className="btn mt-3 bg-gradient-primary" href="userLogin.html">Start Sale</a></div>
+                    <div><Link className="btn mt-3 bg-gradient-primary" to="/register">Start Sale</Link></div>
                 </div>
             </div>
         </nav>
@@ -29,8 +31,8 @@ const IndexPage = () => {
                     <div className="col-12 col-md-10 col-lg-5 mb-5 mb-lg-0">
                         <h2 className=" fw-bold mb-3">Elevate Your Sales Game with Our Powerful POS Application! </h2>
                         <p className="lead text-muted mb-4">Discover streamlined transactions, real-time inventory management, and actionable insights in one intuitive POS app.</p>
-                        <div className="d-flex flex-wrap"><a className="btn bg-gradient-primary me-2 mb-2 mb-sm-0" href="userLogin.html">Start Sale</a>
-                            <a className="btn bg-gradient-primary mb-2 mb-sm-0" href="userLogin.html">Login</a></div>
+                        <div className="d-flex flex-wrap"><Link className="btn bg-gradient-primary me-2 mb-2 mb-sm-0" to="/register">Start Sale</Link>
+                            <Link className="btn bg-gradient-primary mb-2 mb-sm-0" to="/login">Login</Link></div>
                         </div>
                         <div className="col-12 col-lg-6 offset-lg-1">
                             <img className="img-fluid" src="./images/hero.svg" alt=""/>
