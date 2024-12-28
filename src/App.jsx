@@ -7,6 +7,7 @@ import VerifyOtp from "./pages/VerifyOtp";
 import SetPassword from "./pages/SetPassword";
 import DashboardLayout from "./layout/DashboardLayout";
 import DashboardIndex from "./pages/dashboard/DashboardIndex";
+import LogoutPage from "./pages/LogoutPage";
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/password-reset" element={<PasswordResetPage />} />
         <Route path="/verify-otp" element={<VerifyOtp />} />
         <Route path="/set-password" element={<SetPassword />} />
+        <Route path="/logout" element={<LogoutPage />} />
         
         <Route path="/dashboard/" element={<DashboardLayout />} >
           <Route path="index" element={<DashboardIndex />} />

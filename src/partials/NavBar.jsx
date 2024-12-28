@@ -25,9 +25,9 @@ const NavBar = ({ navOpenHandler }) => {
                                 <a href="userProfile.html" className="side-bar-item">
                                     <span className="side-bar-item-caption">Profile</span>
                                 </a>
-                                <a href="index.html" className="side-bar-item">
+                                <Link to={"/logout"} className="side-bar-item">
                                     <span className="side-bar-item-caption">Logout</span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
