@@ -20,7 +20,7 @@ const LoginPage = () => {
         ).then((response) => {
             if (response.data.status === "success") {
                 localStorage.setItem("token", response.data.token);
-                navigate("/dashboard");
+                navigate("/dashboard/index");
             } else {
                 alert(response.data.message);
             }

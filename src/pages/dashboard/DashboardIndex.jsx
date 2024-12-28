@@ -1,7 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import myaxios from '../../utils/myaxios';
 
 
 const DashboardIndex = ({ isNavOpen }) => {
+
+    const [customer, setCustomer] = useState(0);
+    const [product, setProduct] = useState(0);
+    const [category, setCategory] = useState(0);
+    const [invoice, setInvoice] = useState(0);
+    const [total, setTotal] = useState(0);
+    const [vat, setVat] = useState(0);
+    const [payable, setPayable] = useState(0);
+
+
+    useEffect(() => {
+        myaxios.get(
+            "/summary"
+        ).then((response) => {
+            console.log(response);
+            setCustomer(response.data.customer);
+            setProduct(response.data.product);
+            setCategory(response.data.category);
+            setInvoice(response.data.invoice);
+            setTotal(response.data.total);
+            setVat(response.data.vat);
+            setPayable(response.data.payable);
+
+        }).catch((error) => {
+            console.log("Error");
+        })
+    }, []);
+
+
+
+
+
     return (
         <div>
             <div id="contentRef" className={isNavOpen}>
@@ -14,7 +47,7 @@ const DashboardIndex = ({ isNavOpen }) => {
                                         <div className="col-9 col-lg-8 col-md-8 col-sm-9">
                                             <div>
                                                 <h5 className="mb-0 text-capitalize font-weight-bold">
-                                                    <span id="product">0</span>
+                                                    <span id="product">{product}</span>
                                                 </h5>
                                                 <p className="mb-0 text-sm">Product</p>
                                             </div>
@@ -36,7 +69,7 @@ const DashboardIndex = ({ isNavOpen }) => {
                                         <div className="col-9 col-lg-8 col-md-8 col-sm-9">
                                             <div>
                                                 <h5 className="mb-0 text-capitalize font-weight-bold">
-                                                    <span id="category">1</span>
+                                                    <span id="category">{category}</span>
                                                 </h5>
                                                 <p className="mb-0 text-sm">Category</p>
                                             </div>
@@ -58,7 +91,7 @@ const DashboardIndex = ({ isNavOpen }) => {
                                         <div className="col-9 col-lg-8 col-md-8 col-sm-9">
                                             <div>
                                                 <h5 className="mb-0 text-capitalize font-weight-bold">
-                                                    <span id="customer">1</span>
+                                                    <span id="customer">{customer}</span>
                                                 </h5>
                                                 <p className="mb-0 text-sm">Customer</p>
                                             </div>
@@ -80,7 +113,7 @@ const DashboardIndex = ({ isNavOpen }) => {
                                         <div className="col-9 col-lg-8 col-md-8 col-sm-9">
                                             <div>
                                                 <h5 className="mb-0 text-capitalize font-weight-bold">
-                                                    <span id="invoice">0</span>
+                                                    <span id="invoice">{invoice}</span>
                                                 </h5>
                                                 <p className="mb-0 text-sm">Invoice</p>
                                             </div>
@@ -103,7 +136,7 @@ const DashboardIndex = ({ isNavOpen }) => {
                                         <div className="col-9 col-lg-8 col-md-8 col-sm-9">
                                             <div>
                                                 <h5 className="mb-0 text-capitalize font-weight-bold">
-                                                    $ <span id="total">0</span>
+                                                    $ <span id="total">{total}</span>
                                                 </h5>
                                                 <p className="mb-0 text-sm">Total Sale</p>
                                             </div>
@@ -126,7 +159,7 @@ const DashboardIndex = ({ isNavOpen }) => {
                                         <div className="col-9 col-lg-8 col-md-8 col-sm-9">
                                             <div>
                                                 <h5 className="mb-0 text-capitalize font-weight-bold">
-                                                    $ <span id="vat">0</span>
+                                                    $ <span id="vat">{vat}</span>
                                                 </h5>
                                                 <p className="mb-0 text-sm">Vat Collection</p>
                                             </div>
@@ -149,7 +182,7 @@ const DashboardIndex = ({ isNavOpen }) => {
                                         <div className="col-9 col-lg-8 col-md-8 col-sm-9">
                                             <div>
                                                 <h5 className="mb-0 text-capitalize font-weight-bold">
-                                                    $ <span id="payable">0</span>
+                                                    $ <span id="payable">{payable}</span>
                                                 </h5>
                                                 <p className="mb-0 text-sm">Total Collection</p>
                                             </div>
