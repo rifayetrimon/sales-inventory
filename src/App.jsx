@@ -41,6 +41,8 @@ function App() {
           <Route path="profile" element={<ProfilePage />} />
         </Route>
 
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+
       </Routes>
     </BrowserRouter>
   );

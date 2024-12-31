@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // import { errorToast, successToast } from "../utils/toast";
 
 
-const ProfilePage = () => {
+const ProfilePage = ({isNavOpen}) => {
     const [profile, setProfile] = useState({
         email: "",
         firstName: "",
@@ -38,8 +38,8 @@ const ProfilePage = () => {
     const handleUpdate = (e) => {
         e.preventDefault();
 
-        // const updatedProfile = { ...profile };
-        const updatedProfile = { ...profile, password: profile.password || "" };
+        const updatedProfile = { ...profile };
+        // const updatedProfile = { ...profile, password: profile.password || "" };
 
 
         // If password is empty, it should not be sent in the update request
@@ -47,8 +47,7 @@ const ProfilePage = () => {
             delete updatedProfile.password;
         }
 
-        console.log("Updating profile with data: ", updatedProfile); // Log the data being sent
-
+        
         myaxios.post("/user-update", updatedProfile)
             .then((response) => {
                 console.log("Response from update API:", response); // Log the response from the API
@@ -80,7 +79,7 @@ const ProfilePage = () => {
 
     return (
         <div>
-            <div id="contentRef" className="content">
+            <div id="contentRef" className="{isNavOpen}">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 col-lg-12">
